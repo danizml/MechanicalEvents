@@ -1,0 +1,30 @@
+name: MechanicalEvents
+version: '${version}'
+main: com.danizml.mechanicalevents.MechanicalEvents
+api-version: 1.16
+authors: [danizml]
+description: This mod adds some mechanics to improve the gameplay and difficulty
+website: https://danizml.com
+
+commands:
+  mevents:
+    description: Primary Commands
+    permission: mechanicalevents.mevents
+
+permissions:
+  mechanicalevents.mevents:
+    description: Primary Permissions
+  mechanicalevents.reload:
+    description: Reload Permission
+  mechanicalevents.help:
+    description: Help Permission
+  mechanicalevents.config:
+    description: Config Permission
+
+  mechanicalevents.all:
+    description: All permissions of MechanicalEvents
+    children:
+      - mechanicalevents.mevents
+      - mechanicalevents.reload
+      - mechanicalevents.help
+      - mechanicalevents.config
