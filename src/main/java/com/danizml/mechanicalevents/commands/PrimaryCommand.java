@@ -7,6 +7,9 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.player.PlayerAnimationEvent;
+import org.bukkit.event.player.PlayerEvent;
 
 public class PrimaryCommand implements CommandExecutor {
     @Override
@@ -34,6 +37,17 @@ public class PrimaryCommand implements CommandExecutor {
                 }
 
             }
+            //------------------
+            if (args[0].equalsIgnoreCase("tracker")) {
+                if (sender.hasPermission("mechanicalevents.tracker")) {
+
+
+                } else {
+                    Colors.sendMessage((Player) sender, "&0&l[&4ERROR&0&l] -> &4commandNotFound");
+                }
+
+            }
+            //-------------------
             if (args[0].equalsIgnoreCase("config")) {
                 if (sender.hasPermission("mechanicalevents.config")) {
                     Player player = (Player) sender;
