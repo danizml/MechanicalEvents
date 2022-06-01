@@ -2,7 +2,9 @@ package com.danizml.mechanicalevents.manager;
 
 import com.danizml.mechanicalevents.MechanicalEvents;
 import com.danizml.mechanicalevents.commands.PrimaryCommand;
+import com.danizml.mechanicalevents.events.StickInfo;
 import com.danizml.mechanicalevents.menus.MainMenu;
+import com.danizml.mechanicalevents.storage.ItemMeta;
 import com.danizml.mechanicalevents.storage.TabCompleter;
 
 import java.util.Objects;
@@ -14,6 +16,7 @@ public class RegisterManager {
         registerTabulatorCompleter();
         registerEvents();
         MessageManager.start();
+        ItemMeta.register();
     }
 
     private static void registerUpdateChecker() {
@@ -32,5 +35,6 @@ public class RegisterManager {
 
     private static void registerEvents() {
         MechanicalEvents.getPlugin().getServer().getPluginManager().registerEvents(new MainMenu(), MechanicalEvents.getPlugin());
+        MechanicalEvents.getPlugin().getServer().getPluginManager().registerEvents(new StickInfo(), MechanicalEvents.getPlugin());
     }
 }

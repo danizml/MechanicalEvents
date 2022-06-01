@@ -3,13 +3,18 @@ package com.danizml.mechanicalevents.commands;
 import com.danizml.mechanicalevents.manager.YMLManager;
 import com.danizml.mechanicalevents.menus.MainMenu;
 import com.danizml.mechanicalevents.storage.Colors;
+import com.danizml.mechanicalevents.storage.yml.Messages;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
-import org.bukkit.event.EventHandler;
-import org.bukkit.event.player.PlayerAnimationEvent;
-import org.bukkit.event.player.PlayerEvent;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+
+import java.util.Objects;
 
 public class PrimaryCommand implements CommandExecutor {
     @Override
@@ -24,7 +29,7 @@ public class PrimaryCommand implements CommandExecutor {
                     Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] &8tools");
 
                 } else {
-                    Colors.sendMessage((Player) sender, "&0&l[&4ERROR&0&l] -> &4commandNotFound");
+                    Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
                 }
             }
 
@@ -34,26 +39,53 @@ public class PrimaryCommand implements CommandExecutor {
                     Colors.sendMessage((Player) sender, "&9&l[&bMechanicalEvents&9&l] -> &8The config has been reloaded");
 
                 } else {
-                    Colors.sendMessage((Player) sender, "&0&l[&4ERROR&0&l] -> &4commandNotFound");
+                    Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
                 }
 
             }
+
             //------------------
-            if (args[0].equalsIgnoreCase("tracker")) {
-                if (sender.hasPermission("mechanicalevents.tracker")) {
+            if (args[0].equalsIgnoreCase("tools")) {
+                if (args[1].equalsIgnoreCase("tracker")) {
+                    if (sender.hasPermission("mechanicalevents.tracker")) {
+                        if (args[2].equalsIgnoreCase("on")) {
 
+                        }
 
-                } else {
-                    Colors.sendMessage((Player) sender, "&0&l[&4ERROR&0&l] -> &4commandNotFound");
+                        if (args[2].equalsIgnoreCase("off")) {
+
+                        }
+                    } else {
+                        Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
+                    }
                 }
 
+                if (args[1].equalsIgnoreCase("stickinfo")) {
+                    ItemStack item = new ItemStack(Material.STICK, 1);
+                    ItemMeta itemMeta = item.getItemMeta();
+
+                    Objects.requireNonNull(itemMeta).setDisplayName(com.danizml.mechanicalevents.storage.ItemMeta.getStickInfo.getName());
+                    itemMeta.setLore(com.danizml.mechanicalevents.storage.ItemMeta.getStickInfo.getLore());
+                    itemMeta.addEnchant(Enchantment.DURABILITY, 3,true);
+                    itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+                    item.setItemMeta(itemMeta);
+
+                    ((Player) sender).getInventory().addItem(item);
+                } else {
+                    Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
+                }
             }
+
+
             //-------------------
             if (args[0].equalsIgnoreCase("config")) {
                 if (sender.hasPermission("mechanicalevents.config")) {
                     Player player = (Player) sender;
                     MainMenu.CreateGuiPrimary();
                     player.openInventory(MainMenu.config);
+                } else {
+                    Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
                 }
             }
         }return true;
