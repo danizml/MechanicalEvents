@@ -1,0 +1,9 @@
+#You can't use colors still the altha
+stickInfo:
+  name: "Stick Info"
+  lore:
+    - "Right Click in block to get the info"
+stickBan:
+  name: "Ban Stick"
+  lore:
+    - "Right Click in block to get the info"
