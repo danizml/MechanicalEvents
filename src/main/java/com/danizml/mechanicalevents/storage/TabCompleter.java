@@ -16,15 +16,16 @@ public class TabCompleter implements org.bukkit.command.TabCompleter {
         if (cmd.getName().equalsIgnoreCase("mevents")) {
             List<String> argList = new ArrayList<>();
             if (args.length == 1) {
-                argList.add("tracker");
                 argList.add("config");
                 argList.add("reload");
+                argList.add("tools");
                 argList.add("help");
                 return argList.stream().filter(a -> a.startsWith(args[0])).collect(Collectors.toList());
             }
-            if (args.length == 2 && (args[0].equals("tracker"))) {
-                argList.add("On");
-                argList.add("Off");
+
+            if (args.length == 2 && (args[0].equals("tools"))) {
+                argList.add("tracker");
+                argList.add("stickinfo");
                 return argList;
             }
         }return null;

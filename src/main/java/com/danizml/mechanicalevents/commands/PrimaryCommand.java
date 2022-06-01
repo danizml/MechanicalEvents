@@ -18,9 +18,10 @@ public class PrimaryCommand implements CommandExecutor {
             if (args[0].equalsIgnoreCase("help")) {
                 if (sender.hasPermission("mechanicalevents.help")) {
                     Colors.sendMessage((Player) sender, "&9&l[&bMechanicalEvents&9&l]");
-                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] -> &8help");
-                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] -> &8config");
-                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] -> &8reload");
+                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] &8help");
+                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] &8config");
+                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] &8reload");
+                    Colors.sendMessage((Player) sender, "&9&l[&b+&9&l] &8tools");
 
                 } else {
                     Colors.sendMessage((Player) sender, "&0&l[&4ERROR&0&l] -> &4commandNotFound");
