@@ -3,6 +3,7 @@ package com.danizml.mechanicalevents.manager;
 import com.danizml.mechanicalevents.MechanicalEvents;
 import com.danizml.mechanicalevents.commands.PrimaryCommand;
 import com.danizml.mechanicalevents.events.StickInfo;
+import com.danizml.mechanicalevents.events.TeleportClock;
 import com.danizml.mechanicalevents.menus.MainMenu;
 import com.danizml.mechanicalevents.storage.ItemMeta;
 import com.danizml.mechanicalevents.storage.PluginDescription;
@@ -40,5 +41,6 @@ public class RegisterManager {
     private static void registerEvents() {
         MechanicalEvents.getPlugin().getServer().getPluginManager().registerEvents(new MainMenu(), MechanicalEvents.getPlugin());
         MechanicalEvents.getPlugin().getServer().getPluginManager().registerEvents(new StickInfo(), MechanicalEvents.getPlugin());
+        MechanicalEvents.getPlugin().getServer().getPluginManager().registerEvents(new TeleportClock(), MechanicalEvents.getPlugin());
     }
 }
