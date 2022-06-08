@@ -85,7 +85,7 @@ public class MainMenu implements Listener {
                 //player.sendMessage(ChatColor.DARK_RED + "[Error] -> item.null");
             //}
 
-            if (event.getCurrentItem().getType() == Material.BARRIER && Objects.requireNonNull(event.getCurrentItem().getItemMeta()).getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', "&dClose menu"))) {
+            if (Objects.requireNonNull(event.getCurrentItem()).getType() == Material.BARRIER && Objects.requireNonNull(event.getCurrentItem().getItemMeta()).getDisplayName().equalsIgnoreCase(ChatColor.translateAlternateColorCodes('&', "&dClose menu"))) {
                 player.closeInventory();
             }
 
