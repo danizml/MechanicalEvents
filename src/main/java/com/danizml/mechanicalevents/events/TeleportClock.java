@@ -23,6 +23,7 @@ public class TeleportClock implements Listener {
 
                     if (Objects.equals(Objects.requireNonNull(itemMeta).getLore(), ItemMeta.getTeleportClock.getLore())) {
                         if (Objects.equals(Objects.requireNonNull(itemMeta).getDisplayName(), ItemMeta.getTeleportClock.getName())) {
+                            //arreglar el comando la location de la mirada
                             Location location = event.getPlayer().getEyeLocation().getBlock().getLocation();
                             event.getPlayer().teleport(location);
 
