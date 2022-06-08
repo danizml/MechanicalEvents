@@ -3,7 +3,11 @@ stickInfo:
   name: "Stick Info"
   lore:
     - "Right Click in block to get the info"
-stickBan:
-  name: "Ban Stick"
+teleportClock:
+  name: "Teleport Clock"
   lore:
-    - "Right Click in block to get the info"
+    - "Right Click in look for teleport"
+playerPing:
+  name: "Player Ping"
+  lore:
+    - "Right Click in a player to ping it"

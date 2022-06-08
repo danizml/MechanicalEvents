@@ -20,11 +20,14 @@ permissions:
     description: Help Permission
   mechanicalevents.config:
     description: Config Permission
+  mechanicalevents.tools:
+    description: Tools Permission
 
   mechanicalevents.all:
     description: All permissions of MechanicalEvents
     children:
       - mechanicalevents.mevents
+      - mechanicalevents.tools
       - mechanicalevents.reload
       - mechanicalevents.help
       - mechanicalevents.config

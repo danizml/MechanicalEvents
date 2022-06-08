@@ -46,32 +46,68 @@ public class PrimaryCommand implements CommandExecutor {
 
             //------------------
             if (args[0].equalsIgnoreCase("tools")) {
-                if (args[1].equalsIgnoreCase("tracker")) {
-                    if (sender.hasPermission("mechanicalevents.tracker")) {
-                        if (args[2].equalsIgnoreCase("on")) {
+                if (sender.hasPermission("mechanicalevents.tools")) {
+                    if (args[1].equalsIgnoreCase("tracker")) {
+                        if (sender.hasPermission("mechanicalevents.tracker")) {
+                            if (args[2].equalsIgnoreCase("on")) {
 
+                            }
+
+                            if (args[2].equalsIgnoreCase("off")) {
+
+                            }
+                        } else {
+                            Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
                         }
+                    }
 
-                        if (args[2].equalsIgnoreCase("off")) {
+                    if (args[1].equalsIgnoreCase("stickinfo")) {
+                        ItemStack item = new ItemStack(Material.STICK, 1);
+                        ItemMeta itemMeta = item.getItemMeta();
 
-                        }
+                        Objects.requireNonNull(itemMeta).setDisplayName(com.danizml.mechanicalevents.storage.ItemMeta.getStickInfo.getName());
+                        itemMeta.setLore(com.danizml.mechanicalevents.storage.ItemMeta.getStickInfo.getLore());
+                        itemMeta.addEnchant(Enchantment.DURABILITY, 3,true);
+                        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+                        item.setItemMeta(itemMeta);
+
+                        ((Player) sender).getInventory().addItem(item);
                     } else {
                         Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
                     }
-                }
 
-                if (args[1].equalsIgnoreCase("stickinfo")) {
-                    ItemStack item = new ItemStack(Material.STICK, 1);
-                    ItemMeta itemMeta = item.getItemMeta();
+                    if (args[1].equalsIgnoreCase("teleportclock")) {
+                        ItemStack item = new ItemStack(Material.COMPASS, 1);
+                        ItemMeta itemMeta = item.getItemMeta();
 
-                    Objects.requireNonNull(itemMeta).setDisplayName(com.danizml.mechanicalevents.storage.ItemMeta.getStickInfo.getName());
-                    itemMeta.setLore(com.danizml.mechanicalevents.storage.ItemMeta.getStickInfo.getLore());
-                    itemMeta.addEnchant(Enchantment.DURABILITY, 3,true);
-                    itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+                        Objects.requireNonNull(itemMeta).setDisplayName(com.danizml.mechanicalevents.storage.ItemMeta.getTeleportClock.getName());
+                        itemMeta.setLore(com.danizml.mechanicalevents.storage.ItemMeta.getTeleportClock.getLore());
+                        itemMeta.addEnchant(Enchantment.DURABILITY, 3,true);
+                        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
 
-                    item.setItemMeta(itemMeta);
+                        item.setItemMeta(itemMeta);
 
-                    ((Player) sender).getInventory().addItem(item);
+                        ((Player) sender).getInventory().addItem(item);
+                    } else {
+                        Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
+                    }
+
+                    if (args[1].equalsIgnoreCase("playerping")) {
+                        ItemStack item = new ItemStack(Material.BLAZE_ROD, 1);
+                        ItemMeta itemMeta = item.getItemMeta();
+
+                        Objects.requireNonNull(itemMeta).setDisplayName(com.danizml.mechanicalevents.storage.ItemMeta.getPlayerping.getName());
+                        itemMeta.setLore(com.danizml.mechanicalevents.storage.ItemMeta.getPlayerping.getLore());
+                        itemMeta.addEnchant(Enchantment.DURABILITY, 3,true);
+                        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+
+                        item.setItemMeta(itemMeta);
+
+                        ((Player) sender).getInventory().addItem(item);
+                    } else {
+                        Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
+                    }
                 } else {
                     Colors.sendMessage((Player) sender, Messages.getMessages().getString("Messages.PermissionErrorMessage"));
                 }

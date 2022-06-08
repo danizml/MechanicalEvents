@@ -23,14 +23,9 @@ public class TabCompleter implements org.bukkit.command.TabCompleter {
             }
 
             if (args.length == 2 && (args[0].equals("tools"))) {
-                argList.add("tracker");
+                argList.add("teleportclock");
                 argList.add("stickinfo");
-                return argList;
-            }
-
-            if (args.length == 3 && (args[0].equals("tracker"))) {
-                argList.add("on");
-                argList.add("off");
+                argList.add("playerping");
                 return argList;
             }
         }return null;

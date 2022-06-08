@@ -28,6 +28,7 @@ public class StickInfo implements Listener {
 
                             String drop = String.valueOf(Objects.requireNonNull(event.getClickedBlock().getDrops()));
 
+
                             String type = String.valueOf(Objects.requireNonNull(event.getClickedBlock()).getType());
                             String chunkX = String.valueOf(Objects.requireNonNull(event.getClickedBlock()).getChunk().getX());
                             String chunkZ = String.valueOf(Objects.requireNonNull(event.getClickedBlock()).getChunk().getZ());

@@ -1,10 +1,10 @@
-package com.danizml.mechanicalevents.manager;
+package com.danizml.mechanicalevents.storage;
 
 import com.danizml.mechanicalevents.MechanicalEvents;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.PluginDescriptionFile;
 
-public class PluginDescriptionManager {
+public class PluginDescription {
     private static final PluginDescriptionFile pdffile = MechanicalEvents.getPlugin().getDescription();
     public static String permissionDefault;
     public static String primaryPrefix;
